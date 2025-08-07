@@ -1,0 +1,299 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    color: #333;
+}
+
+/* Container and Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Flip Card Container */
+.flip-card {
+    width: 100%;
+    height: 400px;
+    perspective: 1000px; /* Creates 3D depth */
+    cursor: pointer;
+}
+
+/* Flip Card Inner Container */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease; /* Smooth flip animation */
+    transform-style: preserve-3d; /* Maintains 3D space */
+}
+
+/* Flip Effect on Hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); /* Rotates 180 degrees around Y-axis */
+}
+
+/* Front and Back Face Common Styles */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the rear of each face */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Front Face Styles */
+.flip-card-front {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.card-tagline {
+    font-size: 1rem;
+    color: #718096;
+    font-weight: 400;
+}
+
+/* Back Face Styles */
+.flip-card-back {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: rotateY(180deg); /* Initially rotated to be hidden */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.back-content {
+    text-align: center;
+    color: white;
+}
+
+.back-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.back-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Skills Section */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Call to Action Button */
+.cta-button {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+.cta-button:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .flip-card {
+        height: 350px;
+    }
+    
+    .back-content {
+        padding: 1rem;
+    }
+    
+    .back-title {
+        font-size: 1.5rem;
+    }
+    
+    .back-description {
+        font-size: 0.9rem;
+    }
+    
+    .skills {
+        gap: 0.3rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .flip-card {
+        height: 320px;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .back-content {
+        padding: 0.8rem;
+    }
+}
+
+/* Additional Hover Effects */
+.flip-card {
+    transition: transform 0.3s ease;
+}
+
+.flip-card:hover {
+    transform: scale(1.02);
+}
+
+/* Focus States for Accessibility */
+.cta-button:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* Smooth Loading Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flip-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.flip-card:nth-child(1) { animation-delay: 0.1s; }
+.flip-card:nth-child(2) { animation-delay: 0.2s; }
+.flip-card:nth-child(3) { animation-delay: 0.3s; }
+.flip-card:nth-child(4) { animation-delay: 0.4s; } 
